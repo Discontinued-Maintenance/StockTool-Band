@@ -6,15 +6,15 @@ window.geometry('400x250')
 
 def _principal_percent(event):
     try:
-        buy = int(buy_entry.get())
+        buy = float(buy_entry.get())
     except:
         buy = 0
     try:
-        stoploss = int(stop_loss_entry.get())
+        stoploss = float(stop_loss_entry.get())
     except:
         stoploss = 0
     try:
-        principal = int(principal_entry.get())
+        principal = float(principal_entry.get())
     except:
         principal = 0
     try:
@@ -33,15 +33,15 @@ def _principal_percent(event):
 
 def _buy_estimated_cost_text(event):
     try:
-        buy = int(buy_entry.get())
+        buy = float(buy_entry.get())
     except:
         buy = 0
     try:
-        stoploss = int(stop_loss_entry.get())
+        stoploss = float(stop_loss_entry.get())
     except:
         stoploss = 0
     try:
-        principal = int(principal_entry.get())
+        principal = float(principal_entry.get())
     except:
         principal = 0
     try:
@@ -61,15 +61,15 @@ def _buy_estimated_cost_text(event):
 
 def _sell_text(event):
     try:
-        buy = int(buy_entry.get())
+        buy = float(buy_entry.get())
     except:
         buy = 0
     try:
-        stoploss = int(stop_loss_entry.get())
+        stoploss = float(stop_loss_entry.get())
     except:
         stoploss = 0
     try:
-        principal = int(principal_entry.get())
+        principal = float(principal_entry.get())
     except:
         principal = 0
     try:
