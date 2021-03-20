@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\RONGF\\Desktop\\股票'],
+             pathex=['C:\\Users\\RONGF\\Desktop\\股票\\StockTool-Band'],
              binaries=[],
              datas=[],
              hiddenimports=[],

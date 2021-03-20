@@ -1,7 +1,7 @@
 import tkinter as tk
 import math
 window = tk.Tk()
-window.title('StockTool')
+window.title('StockTool-Band')
 window.geometry('400x250')
 
 def _principal_percent(event):
@@ -78,7 +78,7 @@ def _sell_text(event):
         percent = 0
     value = round(principal * percent)
     sell = buy - (buy*(stoploss/100))
-    formula = round((sell*1000) + (sell*0.001425)+(sell*0.03))
+    formula = round((sell*1000) + (sell*0.001425)+(sell*0.003))
     try:
         sheets_number_formula =  math.floor((value-((buy*0.001425)+(sell*0.001425)+(sell*0.03))/(buy-sell)))
     except:
@@ -120,7 +120,6 @@ buy_entry.pack(side=tk.LEFT)
 _buy_estimated_cost_text = tk.StringVar()
 estimated_cost_label = tk.Label(window, textvariable=_buy_estimated_cost_text,font=('Arial', 20))
 estimated_cost_label.pack()
-
 
 third_row = tk.Frame(window)
 third_row.pack(side=tk.TOP)
