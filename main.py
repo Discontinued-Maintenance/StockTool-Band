@@ -24,7 +24,7 @@ def _principal_percent(event):
     value = round(principal * percent)
     sell = buy - (buy*(stoploss/100))
     try:
-        sheets_number_formula =  math.floor((value-(((buy*1000)+(buy*0.001425))+((sell*1000)+(sell*0.001425)+(sell*0.03)))/(buy-sell)))
+        sheets_number_formula =  math.floor((value-((buy*0.001425)+(sell*0.001425)+(sell*0.03))/(buy-sell)))
     except:
         sheets_number_formula = 0
     result = 'R：{}'.format(value)
@@ -52,7 +52,7 @@ def _buy_estimated_cost_text(event):
     sell = buy - (buy*(stoploss/100))
     formula = round((buy*1000)+(buy*0.001425))
     try:
-        sheets_number_formula =  math.floor((value-(((buy*1000)+(buy*0.001425))+((sell*1000)+(sell*0.001425)+(sell*0.03)))/(buy-sell)))
+        sheets_number_formula =  math.floor((value-((buy*0.001425)+(sell*0.001425)+(sell*0.03))/(buy-sell)))
     except:
         sheets_number_formula = 0
     result = '預估成本：{}'.format(str(formula))
@@ -80,7 +80,7 @@ def _sell_text(event):
     sell = buy - (buy*(stoploss/100))
     formula = round((sell*1000) + (sell*0.001425)+(sell*0.03))
     try:
-        sheets_number_formula =  math.floor((value-(((buy*1000)+(buy*0.001425))+((sell*1000)+(sell*0.001425)+(sell*0.03)))/(buy-sell)))
+        sheets_number_formula =  math.floor((value-((buy*0.001425)+(sell*0.001425)+(sell*0.03))/(buy-sell)))
     except:
         sheets_number_formula = 0
     result = '賣：{} '.format(str(sell))
