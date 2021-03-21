@@ -76,8 +76,12 @@ def _sell_text(event):
         percent = float(percent_entry.get())/100
     except:
         percent = 0
+    try:
+        multiplier = float(multiplier_entry.get())/100
+    except:
+        multiplier = 1    
     value = round(principal * percent)
-    sell = buy - (buy*(stoploss/100))
+    sell = buy - (buy*(stoploss/100)*multiplier)
     formula = (sell*1000*0.001425)+(sell*1000*0.003)
     try:
         sheets_number_formula =  math.floor((((value-((buy*1000*0.001425)+(sell*1000*0.001425)+(sell*1000*0.003)))/(buy-sell)))/1000)
@@ -130,7 +134,10 @@ stop_loss_entry = tk.Entry(third_row)
 stop_loss_entry.bind('<KeyRelease>' ,_sell_text)
 stop_loss_entry.pack(side=tk.LEFT)
 stop_loss_label = tk.Label(third_row, text='%')
-stop_loss_label.pack(side=tk.RIGHT)
+stop_loss_label.pack(side=tk.LEFT)
+multiplier_entry = tk.Entry(third_row)
+multiplier_entry.bind('<KeyRelease>' ,_sell_text)
+multiplier_entry.pack(side=tk.RIGHT)
 
 _sell_text = tk.StringVar()
 sell_label = tk.Label(window, textvariable=_sell_text,font=('Arial', 20))
