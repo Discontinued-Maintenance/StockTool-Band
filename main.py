@@ -22,7 +22,7 @@ def _principal_percent(event):
     except:
         percent = 0
     value = round(principal * percent)
-    sell = buy - (buy*(stoploss/100))
+    sell = buy - (buy*(stoploss/100)*multiplier)
     try:
         sheets_number_formula =  math.floor((value-((buy*0.001425)+(sell*0.001425)+(sell*0.03))/(buy-sell)))
     except:
@@ -49,7 +49,7 @@ def _buy_estimated_cost_text(event):
     except:
         percent = 0
     value = round(principal * percent)
-    sell = buy - (buy*(stoploss/100))
+    sell = buy - (buy*(stoploss/100)*multiplier)
     formula = buy*1000*0.001425
     try:
         sheets_number_formula =  math.floor((value-((buy*0.001425)+(sell*0.001425)+(sell*0.03))/(buy-sell)))
