@@ -2,9 +2,13 @@ import tkinter as tk
 import math
 window = tk.Tk()
 window.title('波段')
-window.geometry('400x250')
+window.geometry('400x300')
 
 def _principal_percent(event):
+#    try:
+#        CheckVar = CheckVar1.get()
+#    except:
+#        CheckVar = 0
     try:
         buy = float(buy_entry.get())
     except:
@@ -21,6 +25,10 @@ def _principal_percent(event):
         percent = float(percent_entry.get())/100
     except:
         percent = 0
+    try:
+        multiplier = float(multiplier_entry.get())/100
+    except:
+        multiplier = 1    
     value = round(principal * percent)
     sell = buy - (buy*(stoploss/100)*multiplier)
     try:
@@ -48,6 +56,10 @@ def _buy_estimated_cost_text(event):
         percent = float(percent_entry.get())/100
     except:
         percent = 0
+    try:
+        multiplier = float(multiplier_entry.get())/100
+    except:
+        multiplier = 1    
     value = round(principal * percent)
     sell = buy - (buy*(stoploss/100)*multiplier)
     formula = buy*1000*0.001425
@@ -91,9 +103,27 @@ def _sell_text(event):
     result1 = '預估成本：{} '.format(str(formula))
     result2 = '張數：{} '.format(str(sheets_number_formula))
     return _sell_text.set(result),_sell_estimated_cost_text.set(result1),_sheets_number_text.set(result2)
+
+#def Change():
+#    try:
+#        CheckVar = CheckVar1.get()
+#    except:
+#        CheckVar = 0
+#    if (CheckVar == 1):
+#        buy_label['text'] = "賣"
+#    elif(CheckVar == 0):
+#        buy_label['text'] = "買"
+#    result = '賣：test'
+#    result1 = '預估成本：test '
+#    result2 = '張數：test'
+#    return _sell_text.set(result),_sell_estimated_cost_text.set(result1),_sheets_number_text.set(result2)
         
 first_row_frame = tk.Frame(window)
 first_row_frame.pack(side=tk.TOP)
+
+#CheckVar1 = tk.IntVar()
+#checkbox = tk.Checkbutton(first_row_frame, text='空',variable=CheckVar1, onvalue=1, offvalue=0,command=Change)
+#checkbox.pack()
 
 principal_label = tk.Label(first_row_frame, text='本金：')
 principal_label.pack(side=tk.LEFT)
